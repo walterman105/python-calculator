@@ -9,14 +9,22 @@ top.resizable(width=False, height=False)
 
 answer = Entry(top, width=26)
 
+pressed_equal = False
+
 
 def show(x):
+    global pressed_equal
     try:
         if x == "=":
+            pressed_equal = True
             final_answer = eval(answer.get())
             answer.insert(tk.INSERT, x)
             answer.insert(tk.INSERT, final_answer)
         else:
+            if pressed_equal:
+                pressed_equal = False
+                answer.delete(0, tk.END)
+
             answer.insert(tk.INSERT, x)
     except:
         answer.delete(0, tk.END)
