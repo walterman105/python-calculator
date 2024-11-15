@@ -19,7 +19,7 @@ def show(x):
         else:
             answer.insert(tk.INSERT, x)
     except:
-        answer.delete(1.0, tk.END)
+        answer.delete(0, tk.END)
 
 
 b0 = Button(top, text="0", width=12, height=3, command=lambda: show("0"))
